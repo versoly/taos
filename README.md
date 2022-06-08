@@ -2,16 +2,13 @@
   <a href="https://versoly.com/taos" >
     <img alt="TAOS - Tailwind CSS animation on scroll library" width="50" src="https://d1pnnwteuly8z3.cloudfront.net/images/dafc1e05-b0e8-4c6d-b375-4a62333bbd5a/5a71ada3-f5e4-4de1-bda2-75396a148365.png">
   </a>
-  <a href="https://versoly.com/taos" align=""><h1>Versoly UI</h1></a>
-  <p>Tailwind CSS components library based on Bootstrap, build websites without reinventing the wheel.</p>
+  <a href="https://versoly.com/taos" align=""><h1>TAOS - Tailwind CSS Animation on Scroll</h1></a>
+  <p>A simple and small (600 bytes) library to help animate elements while scrolling using responsive Tailwind CSS utility classes.</p>
 
   <p>
       <a href="https://discord.versoly.com"><img src="https://flat.badgen.net/badge/icon/discord?icon=discord&label" alt="Discord"></a>
-      <a href="https://github.com/versoly/taos/LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue" alt="Licenese"></a>
-      <a href="https://bundlephobia.com/result?p=taos">
-          <img src="https://flat.badgen.net/bundlephobia/minzip/taos?icon=packagephobia&label&color=blue&cache=10800" alt="gzip bundle size">
-      </a>
-      <a href="https://unpkg.com/taos@1.0.6/dist/taos.js">
+      <a href="https://github.com/versoly/taos/blob/main/LICENSE.md"><img src="https://img.shields.io/badge/license-MIT-blue" alt="Licenese"></a>
+      <a href="https://unpkg.com/taos@1.0.0/dist/taos.js">
           <img src="https://flat.badgen.net/badgesize/brotli/https://unpkg.com/taos@1.0.6/dist/taos.js?icon=jsdelivr&label&color=blue&cache=10800" alt="brotli bundle size">
       </a>
   </p>
