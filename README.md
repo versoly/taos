@@ -5,7 +5,7 @@
   <p>
       <a href="https://discord.versoly.com"><img src="https://flat.badgen.net/badge/icon/discord?icon=discord&label" alt="Discord"></a>
       <a href="https://github.com/versoly/taos/blob/main/LICENSE.md"><img src="https://img.shields.io/badge/license-MIT-blue" alt="Licenese"></a>
-      <a href="https://unpkg.com/taos@1.0.1/dist/taos.js">
+      <a href="https://unpkg.com/taos@1.0.2/dist/taos.js">
           <img src="https://flat.badgen.net/badgesize/brotli/https://unpkg.com/taos@1.0.6/dist/taos.js?icon=jsdelivr&label&color=blue&cache=10800" alt="brotli bundle size">
       </a>
   </p>
@@ -71,7 +71,7 @@ Add script in `<head>`
 
 Add the CDN script or download and paste right before the closing `</body>` tag
 ```html
-<script src="https://unpkg.com/taos@1.0.1/dist/taos.js"></script>
+<script src="https://unpkg.com/taos@1.0.2/dist/taos.js"></script>
 ```
 
 ## 💡 Inspiration

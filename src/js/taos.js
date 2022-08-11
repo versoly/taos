@@ -33,6 +33,7 @@
 
   let elements = []
   let scrollY = window.scrollY
+  let windowWidth = window.innerWidth
 
   const refreshTriggers = throttle(() => {
     elements.forEach(el => {
@@ -45,6 +46,7 @@
     document.querySelectorAll('[class*="taos"]').forEach(element => elements.push(initElement(element)))
     refreshTriggers()
     requestAnimationFrame(handleScroll)
+    windowWidth = window.innerWidth
   }
 
   const handleScroll = () => {
@@ -62,8 +64,13 @@
 
   refresh()
   addEventListener('scroll', throttle(handleScroll, 32))
-  addEventListener('resize', refresh)
   addEventListener('orientationchange', refresh)
+  addEventListener('resize', () => {
+    if (window.innerWidth === windowWidth) {
+      return;
+    }
+    refresh()
+  })
 
   const observer = new MutationObserver(mutations => {
     mutations.forEach(({target}) => {
