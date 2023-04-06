@@ -74,7 +74,7 @@
 
   const observer = new MutationObserver(mutations => {
     mutations.forEach(({target}) => {
-      if (!target.className.includes('taos-init') && target.className.includes('taos:')) {
+      if (target.className && !target.className.includes('taos-init') && target.className.includes('taos:')) {
         elements.push(initElement(target))
       }
     })
