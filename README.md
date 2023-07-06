@@ -57,7 +57,9 @@ Add content transform in `tailwind.config.js`
 ```js
 module.exports = {
   content: {
+    relative: true,
     transform: (content) => content.replace(/taos:/g, ''),
+    files: ['./src/*.{html,js}'],
   },
 }
 ```
@@ -73,6 +75,15 @@ Add the CDN script or download and paste right before the closing `</body>` tag
 ```html
 <script src="https://unpkg.com/taos@1.0.3/dist/taos.js"></script>
 ```
+
+## TAOS Frequently Asked Questions
+
+### Does TAOS work with React/Vue/JS frameworks
+
+TAOS does not currently work with JS frameworks as they rerender, disable certain event listeners.
+
+Support for them is on the road map.
+
 
 ## 💡 Inspiration
 
