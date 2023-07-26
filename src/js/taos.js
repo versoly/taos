@@ -1,20 +1,28 @@
 (function() {
-  const throttle = (callback, limit) => {
+  const debounce = (fn, delay) => {
+    let timeoutId = null
+    return () => {
+      clearTimeout(timeoutId)
+      timeoutId = setTimeout(fn, delay)
+    }
+  }
+
+  const throttle = (fn, delay) => {
     let waiting = false
     return () => {
       if (!waiting) {
-        callback()
+        fn()
         waiting = true
-        setTimeout(() => waiting = false, limit)
+        setTimeout(() => waiting = false, delay)
       }
     }
   }
 
   const reset = element => {
-      if (element.className !== element.dataset.taosClass) {
-        element.className = element.dataset.taosClass
-      }
+    if (element.className !== element.dataset.taosClass) {
+      element.className = element.dataset.taosClass
     }
+  }
   const before = element => element.className = element.className.replaceAll('taos:', '')
 
   const initElement = element => {
@@ -27,26 +35,23 @@
 
     return {
       element,
-      once: getComputedStyle(element)['animation-iteration-count'] === '1'
+      once: getComputedStyle(element)['animation-iteration-count'] === '1',
+      offset: parseInt(element.dataset.taosOffset || 0)
     }
   }
 
   let elements = []
   let scrollY = window.scrollY
-  let windowWidth = window.innerWidth
 
   const refreshTriggers = throttle(() => {
-    elements.forEach(el => {
-      el.trigger = el.element.getBoundingClientRect().top - window.innerHeight + parseInt(el.element.dataset.taosOffset || 0) + window.scrollY
-    })
+    elements.forEach(el => el.trigger = el.element.getBoundingClientRect().top - window.innerHeight  + el.offset + scrollY)
   }, 250)
 
   const refresh = () => {
     elements = []
-    document.querySelectorAll('[class*="taos"]').forEach(element => elements.push(initElement(element)))
+    document.querySelectorAll('[class*="taos"]').forEach(el => elements.push(initElement(el)))
     refreshTriggers()
     requestAnimationFrame(handleScroll)
-    windowWidth = window.innerWidth
   }
 
   const handleScroll = () => {
@@ -65,12 +70,7 @@
   refresh()
   addEventListener('scroll', throttle(handleScroll, 32))
   addEventListener('orientationchange', refresh)
-  addEventListener('resize', () => {
-    if (window.innerWidth === windowWidth) {
-      return;
-    }
-    refresh()
-  })
+  addEventListener('resize', debounce(refresh, 250))
 
   const observer = new MutationObserver(mutations => {
     mutations.forEach(({target}) => {
