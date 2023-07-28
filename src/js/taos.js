@@ -41,6 +41,7 @@
   }
 
   let elements = []
+  let innerWidth = window.innerWidth
   let scrollY = window.scrollY
 
   const refreshTriggers = throttle(() => {
@@ -67,10 +68,17 @@
     refreshTriggers()
   }
 
+  const handleResize = () => {
+    if (innerWidth !== window.innerWidth) {
+      innerWidth = window.innerWidth
+      refresh()
+    }
+  }
+
   refresh()
   addEventListener('scroll', throttle(handleScroll, 32))
   addEventListener('orientationchange', refresh)
-  addEventListener('resize', debounce(refresh, 250))
+  addEventListener('resize', debounce(handleResize, 250))
 
   const observer = new MutationObserver(mutations => {
     mutations.forEach(({target}) => {
