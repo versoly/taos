@@ -23,7 +23,15 @@
       element.className = element.dataset.taosClass
     }
   }
-  const before = element => element.className = element.className.replaceAll('taos:', '')
+  const before = element => {
+    if (!String.prototype.replaceAll) {
+      // Fallback for browsers that do not support 'replaceAll'
+      element.className = element.className.split('taos:').join('');
+    } else {
+      // Use 'replaceAll' if available
+      element.className = element.className.replaceAll('taos:', '');
+    }
+  }
 
   const initElement = element => {
     if (!element.className.includes('taos-init')) {
