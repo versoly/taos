@@ -50,7 +50,7 @@
 
   const refresh = () => {
     elements = []
-    document.querySelectorAll('[class*="taos"]').forEach(el => elements.push(initElement(el)))
+    document.querySelectorAll('[class*="Taos"]').forEach(el => elements.push(initElement(el)))
     refreshTriggers()
     requestAnimationFrame(handleScroll)
   }
@@ -78,6 +78,7 @@
   refresh()
   addEventListener('scroll', throttle(handleScroll, 32))
   addEventListener('orientationchange', refresh)
+  addEventListener('turbo:load', refresh)
   addEventListener('resize', debounce(handleResize, 250))
 
   const observer = new MutationObserver(mutations => {
