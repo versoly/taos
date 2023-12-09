@@ -50,7 +50,7 @@
 
   const refresh = () => {
     elements = []
-    document.querySelectorAll('[class*="Taos"]').forEach(el => elements.push(initElement(el)))
+    document.querySelectorAll('[class*="taos"]').forEach(el => elements.push(initElement(el)))
     refreshTriggers()
     requestAnimationFrame(handleScroll)
   }
