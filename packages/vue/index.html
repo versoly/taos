@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TAOS Vue</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        content: {
+          relative: true,
+          transform: (content) => content.replace(/taos:/g, ""),
+          files: ["./src/*.{html,js}"],
+        },
+      };
+    </script>
+    <style>
+      html :where([class*="taos:"]:not(.taos-init)) {
+        visibility: hidden;
+      }
+    </style>
+    <script>
+      document.documentElement.classList.add("js");
+    </script>
+  </head>
+
+  <body>
+    <div id="app"></div>
+    <script type="module" src="./demo/main.js"></script>
+  </body>
+</html>

@@ -1,6 +1,6 @@
 <div align="">
-  <a href="https://versoly.com/taos" align=""><h1>TAOS - Tailwind CSS Animation on Scroll</h1></a>
-  <p>A simple and small (600 bytes) library to help animate elements while scrolling using responsive Tailwind CSS utility classes.</p>
+  <a href="https://versoly.com/taos" align=""><h1>TAOS</h1></a>
+  <p>Tailwind CSS Animation on Scroll - A simple and small (600 bytes) library to help animate elements while scrolling using responsive Tailwind CSS utility classes. React & Vue supported.</p>
 
   <p>
       <a href="https://discord.versoly.com"><img src="https://flat.badgen.net/badge/icon/discord?icon=discord&label" alt="Discord"></a>
@@ -12,6 +12,8 @@
 </div>
 
 ------
+
+[![Versoly - Tailwind page builder](public/versoly.png)](https://versoly.com/tailwind-page-builder?utm_source=github&utm_medium=repo&utm_campaign=image&utm_term=taos)
 
 ## Demo
 
@@ -78,11 +80,18 @@ Add the CDN script or download and paste right before the closing `</body>` tag
 
 ## TAOS Frequently Asked Questions
 
-### Does TAOS work with React/Vue/JS frameworks
+### TAOS doesn't work for my use case can you add custom code just for me?
 
-TAOS does not currently work with JS frameworks as they rerender, disable certain event listeners.
+No, the goal of TAOS is to be as small as possible while providing the most functionality. We're looking into creating taos/core that would make it easy to plug into for custom use cases.
 
-Support for them is on the road map.
+### Why do you use MutationObserver instead of IntersectionObserver
+
+MutationObserver is a cleaner solution to check if the element is in view on page load and refresh. With IntersectionObserver it would require more code on top just to handle that part.
+
+## 💡 JS Frameworks
+
+- [React](https://github.com/versoly/taos/packages/react)
+- [Vue](https://github.com/versoly/taos/packages/vue)
 
 
 ## 💡 Inspiration

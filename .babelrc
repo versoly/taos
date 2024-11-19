@@ -1,7 +1,0 @@
-{
-  "plugins": [
-    ["@babel/transform-runtime", {
-      "regenerator": true
-    }]
-  ]
-}

@@ -1,0 +1,21 @@
+{
+  "name": "taos-react",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^4.5.2",
+    "vite": "^5.0.7"
+  },
+  "dependencies": {
+    "@vueuse/core": "^10.7.0",
+    "vue": "^3.3.11"
+  }
+}
