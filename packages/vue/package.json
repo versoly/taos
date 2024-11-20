@@ -1,8 +1,19 @@
 {
-  "name": "taos-react",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "name": "@taos/vue",
+  "version": "0.1.0",
+  "description": "Vue JS Tailwind CSS Animation on Scroll Library",
+  "type": "module",
+  "exports": {
+    ".": {
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.mjs",
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "dev": "vite",
     "build": "vite build"

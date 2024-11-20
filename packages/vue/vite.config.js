@@ -8,8 +8,19 @@ export default defineConfig({
     lib: {
       entry: path.resolve(__dirname, "src/index.js"),
       name: "TAOS",
-      formats: ["es", "umd"],
-      fileName: (format) => `react-taos.${format}.js`,
+      formats: ["cjs", "esm", "iife"],
+      fileName: (format) => {
+        let jsExtension = ".cjs";
+
+        if (format === "esm") {
+          jsExtension = ".mjs";
+        }
+
+        if (format === "iife") {
+          jsExtension = ".global.js";
+        }
+        return `index${jsExtension}`;
+      },
     },
     rollupOptions: {
       external: ["vue"],

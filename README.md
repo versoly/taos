@@ -90,8 +90,8 @@ MutationObserver is a cleaner solution to check if the element is in view on pag
 
 ## 💡 JS Frameworks
 
-- [React](https://github.com/versoly/taos/packages/react)
-- [Vue](https://github.com/versoly/taos/packages/vue)
+- [React](https://github.com/versoly/taos/tree/main/packages/react)
+- [Vue](https://github.com/versoly/taos/tree/main/packages/vue)
 
 
 ## 💡 Inspiration
