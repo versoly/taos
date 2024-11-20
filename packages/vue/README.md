@@ -8,7 +8,7 @@ TAOS Vue
 
 Install Vue package
 ```js
-npm install taos-vue --save
+npm install @versoly/vue-taos --save
 ```
 
 ### Install Tailwind plugin

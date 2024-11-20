@@ -8,7 +8,7 @@ TAOS React
 
 Install React package
 ```js
-npm install taos-react --save
+npm install @versoly/react-taos --save
 ```
 
 ### Install Tailwind plugin
