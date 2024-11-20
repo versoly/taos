@@ -1,5 +1,5 @@
 {
-  "name": "react-taos",
+  "name": "@versoly/react-taos",
   "version": "0.1.0",
   "description": "React Tailwind CSS Animation on Scroll Library",
   "type": "module",
