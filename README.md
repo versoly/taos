@@ -15,6 +15,20 @@
 
 [![Versoly - Tailwind page builder](public/versoly.png)](https://versoly.com/tailwind-page-builder?utm_source=github&utm_medium=repo&utm_campaign=image&utm_term=taos)
 
+
+------
+## Table of Contents
+
+- [Table of Contents](#table-of-contents)
+- [Demo](#demo)
+- [Getting started](#getting-started)
+  - [Installation](#installation)
+  - [Add JavaScript scripts](#add-javascript-scripts)
+- [TAOS Frequently Asked Questions](#taos-frequently-asked-questions)
+- [JS Frameworks](#js-frameworks)
+- [Inspiration](#inspiration)
+- [Community](#community)
+
 ## Demo
 
 To view 20+ examples of TAOS in action go to [versoly.com/taos](https://versoly.com/taos).
@@ -24,78 +38,72 @@ To view 20+ examples of TAOS in action go to [versoly.com/taos](https://versoly.
 
 TAOS can be included as a plugin into an existing Tailwind CSS project and will allow you to add responsive Tailwind CSS utility classes for animation on scroll.
 
-## Installation
+### Installation
 
-### Install Tailwind Plugin
-
-
-Install TAOS package
-```js
+Install the plugin from npm:
+```shell
 npm install taos --save
 ```
 
-Add plugin in `tailwind.config.js`
-```js
-module.exports = {
-  plugins: [
-    require('taos/plugin')
-  ],
+Then add to your main `style.css` file:
+```css
+@custom-variant taos (&.taos-init:where(:not(.taos-animate)));
+
+html.js :where([class*="taos:"]:not(.taos-init)) {
+  visibility: hidden;
 }
 
+@source inline('!duration-[0ms] !delay-[0ms]');
 ```
 
-Add safelist utilties `tailwind.config.js`
+If you are still using **Tailwind CSS v3**, add the plugin and safelist classes to your `tailwind.config.js` file:
+
 ```js
+// tailwind.config.js
 module.exports = {
+  theme: {
+    // ...
+  },
+  plugins: [
+    // ...
+    require('taos/plugin'),
+  ],
   safelist: [
     '!duration-[0ms]',
     '!delay-[0ms]',
-    'html.js :where([class*="taos:"]:not(.taos-init))'
+    'html.js :where([class*="taos:"]:not(.taos-init))',
   ]
-}
-```
-
-Add content transform in `tailwind.config.js`
-```js
-module.exports = {
-  content: {
-    relative: true,
-    transform: (content) => content.replace(/taos:/g, ''),
-    files: ['./src/*.{html,js}'],
-  },
 }
 ```
 
 ### Add JavaScript scripts
 
+Add the CDN script or download and paste before the closing `</body>` tag
+```html
+  <script src="https://unpkg.com/taos@1.0.5/dist/taos.js"></script>
+</body>
+```
+
 Add script in `<head>`
 ```html
-<script>document.documentElement.classList.add('js')</script>
+  <script>document.documentElement.classList.add('js')</script>
+</head>
 ```
 
-Add the CDN script or download and paste right before the closing `</body>` tag
-```html
-<script src="https://unpkg.com/taos@1.0.5/dist/taos.js"></script>
-```
 
 ## TAOS Frequently Asked Questions
-
-### TAOS doesn't work for my use case can you add custom code just for me?
-
-No, the goal of TAOS is to be as small as possible while providing the most functionality. We're looking into creating taos/core that would make it easy to plug into for custom use cases.
 
 ### Why do you use MutationObserver instead of IntersectionObserver
 
 MutationObserver is a cleaner solution to check if the element is in view on page load and refresh. With IntersectionObserver it would require more code on top just to handle that part.
 
-## 💡 JS Frameworks
+## JS Frameworks
 
 - [React](https://github.com/versoly/taos/tree/main/packages/react)
 - [Vue](https://github.com/versoly/taos/tree/main/packages/vue)
 
 
-## 💡 Inspiration
-
+## Inspiration
 
 - [AOS](https://github.com/michalsnik/aos): is a great library and works by using custom classes such as aos-animate to animate elements.
 - [Tailwind](https://tailwindcss.com/): created an easy to use utility library that is easily extendable and flexible. Their variant and just in time compiler changed the game for developers.

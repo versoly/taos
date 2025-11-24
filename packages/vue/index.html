@@ -4,20 +4,15 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>TAOS Vue</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-      tailwind.config = {
-        content: {
-          relative: true,
-          transform: (content) => content.replace(/taos:/g, ""),
-          files: ["./src/*.{html,js}"],
-        },
-      };
-    </script>
-    <style>
-      html :where([class*="taos:"]:not(.taos-init)) {
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    <style type="text/tailwindcss">
+      @custom-variant taos (&.taos-init:where(:not(.taos-animate)));
+
+      html.js :where([class*="taos:"]:not(.taos-init)) {
         visibility: hidden;
       }
+
+      @source inline('!duration-[0ms] !delay-[0ms]');
     </style>
     <script>
       document.documentElement.classList.add("js");
