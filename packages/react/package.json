@@ -1,16 +1,15 @@
 {
   "name": "@versoly/react-taos",
-  "version": "1.0.1",
+  "version": "1.1.1",
   "description": "React Tailwind CSS Animation on Scroll Library",
   "type": "module",
   "exports": {
     ".": {
-      "import": "./dist/index.mjs",
-      "require": "./dist/index.cjs"
+      "import": "./dist/index.js"
     }
   },
-  "main": "./dist/index.cjs",
-  "module": "./dist/index.mjs",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
   "files": [
     "dist"
   ],
@@ -23,18 +22,21 @@
     "access": "public"
   },
   "scripts": {
+    "build": "tsdown",
     "dev": "vite",
-    "build": "vite build"
+    "preview": "vite preview"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "vite": "^7.2.4",
-    "@vitejs/plugin-react": "^4.2.1"
+    "vite": "^v8.0.0-beta.8",
+    "@vitejs/plugin-react": "^4.2.1",
+    "tsdown": "^0.20.0-beta.3",
+    "typescript": "^5.9.3"
   },
-  "dependencies": {
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+  "peerDependencies": {
+    "react": "^18.0.0 || ^19.0.0",
+    "react-dom": "^18.0.0 || ^19.0.0"
   }
 }
